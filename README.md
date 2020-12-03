@@ -3,6 +3,7 @@
 ![https://images.all-free-download.com/images/graphicthumb/insight_propaganda_marketing_126027.jpg](https://images.all-free-download.com/images/graphicthumb/insight_propaganda_marketing_126027.jpg)
 
 > Before start. Run `bundle install` and `scripts/install-hooks.bash` on the root of this repo.
+Then [download data.csv from google drive](https://drive.google.com/file/d/1FAwitP9JY9r9mynhme_U7hKxhA77df1c/view?usp=sharing)
 
 Insights is a local, global-oriented measurement and data analytics startup that (in our opinion) provides (almost) the most complete and trusted view available of consumers and markets.
 
