@@ -1,43 +1,64 @@
-# Insights
+#Insights
 
 ![https://images.all-free-download.com/images/graphicthumb/insight_propaganda_marketing_126027.jpg](https://images.all-free-download.com/images/graphicthumb/insight_propaganda_marketing_126027.jpg)
 
-> Before start. Run `bundle install` and `scripts/install-hooks.bash` on the root of this repo.
-Then [download data.csv from google drive](https://drive.google.com/file/d/1FAwitP9JY9r9mynhme_U7hKxhA77df1c/view?usp=sharing)
+Insights is a local, global-oriented measurement and data analytics startup that
+(in our opinion) provides (almost) the most complete and trusted view available
+of consumers and markets.
 
-Insights is a local, global-oriented measurement and data analytics startup that (in our opinion) provides (almost) the most complete and trusted view available of consumers and markets.
+For more than 30 days, Insights has provided data and analytics based on
+scientific rigor and innovation (sort of), continually developing new ways to
+answer the most important questions facing the media, advertising, retail and
+fast-moving consumer goods industries. As an S&P 500 company wannabe, Insights
+has operations in over 3 or 4 bedrooms with access to the whole world
+information through the internet.
 
-For more than 30 days, Insights has provided data and analytics based on scientific rigor and innovation (sort of), continually developing new ways to answer the most important questions facing the media, advertising, retail and fast-moving consumer goods industries. As an S&P 500 company wannabe, Insights has operations in over 3 or 4 bedrooms with access to the whole world information through the internet.
+Our self-awarded team of analysts works untiringly to process and share insights
+of all kinds of data collected (or generated) by committed volunteer(s).
 
-Our self-awarded team of analysts works untiringly to process and share insights of all kind of data collected (or generated) by committed volunteer(s).
+Our research team has acquired a large dataset on the consumption of 500 people
+in 100 restaurants around the world for a set of 50 specific dishes during the
+year 2019.
 
-Our research team has acquired a large dataset on the consumption of 500 people in 100 restaurants around the world for a set of 50 specific dishes during the year 2019.
+The data has come on a raw CSV file with this form:
 
-The data has came on a raw csv file with this form:
+![https://p-vvf5mjm.t4.n0.cdn.getcloudapp.com/items/YEuBdPb5/6dc01c0f-8290-46b3-ab6e-31302ab5e4ff.jpg?source=viewer&v=5699773fe79c17fad1f0379643e1798b](https://p-vvf5mjm.t4.n0.cdn.getcloudapp.com/items/YEuBdPb5/6dc01c0f-8290-46b3-ab6e-31302ab5e4ff.jpg?source=viewer&v=5699773fe79c17fad1f0379643e1798b)
 
-![https://p-vvf5mjm.b1.n0.cdn.getcloudapp.com/items/WnulN0Av/Image%202020-12-03%20at%207.16.20%20AM.png?source=viewer&v=6dce41498e4d8de273e28d30d2a8f79e](https://p-vvf5mjm.b1.n0.cdn.getcloudapp.com/items/WnulN0Av/Image%202020-12-03%20at%207.16.20%20AM.png?source=viewer&v=6dce41498e4d8de273e28d30d2a8f79e)
+<aside> 💡 On December 06, 2019, Jewel Daniel, a physicist Romanian man, 28
+years old, visited "Fat Pizza", an "Italian" restaurant located in Haleyport
+city (790 Corrine Prairie), and ordered a Lasagna which cost him $34.</aside>
 
-> Highlighted row: On December 06, 2019, Jewel Daniel, a physicist Romanian man, 28 years old, visited "Fat Pizza", a "Italian" restaurant located on Haleyport city (790 Corrine Prairie), and ordered a Lasagna which cost him $34.
+As the developer/analyst team of Insights, your job is to transform this raw
+data into a clean and manageable relational database and answer the deep
+questions the research team have come up with.
 
-As the developer/analyst team of Insights, your job is to transform this raw data into a clean and manageable relational database and answer the deep questions the research team have come up with.
+---
 
 ## Tasks
 
-### Create a Entity Relationship Diagram (ERD)
+### Create an Entity Relationship Diagram (ERD)
 
-At this point, it should be quite obvious that the current CSV file is not normalized. It is just one single table with a lot of repeated data.
+At this point, it should be quite obvious that the current CSV file is not
+normalized. It is just one single table with a lot of repeated data.
 
-Take a moment with your team to analize and normalize this table and prepare an ERD which shows `tables`, `columns`, `columns_types`, `constrains` and `relationships`. You can use any software you want for this. Even pencil and paper would be enough.
+Take a moment with your team to analyze and normalize this table and prepare an
+ERD which shows `tables`, `columns`, `columns_types`, `constrains`, and
+`relationships`. You can use any software you want for this. Even pencil and
+paper would be enough.
 
 You should include an image of your ERD (png, jpg, pdf) on your solution.
 
 ### Create the database and tables
 
-Using Data Definition Language (DDL) statements, create the database and tables according to your Entity Relationship Diagram.
+Using Data Definition Language (DDL) statements, create the database and tables
+according to your Entity Relationship Diagram.
 
-Put all your SQL code inside a file named `create.sql`. Check the order of your commands! For example you can't `REFERENCES clients(id)` if the table "clients" doesn't exists yet.
+Put all your SQL code inside a file named `create.sql`. Check the order of your
+commands! For example, you can't `REFERENCES clients(id)` if the table "clients"
+doesn't exist yet.
 
-If your `create.sql` file works well, you should be able to delete your entire database and create it again doing something similar to:
+If your `create.sql` file works well, you should be able to delete your entire
+database and create it again doing something similar to:
 
 ```bash
 $ dropdb insights
@@ -47,33 +68,43 @@ CREATE TABLE
 CREATE TABLE
 ...
 CREATE TABLE
-$
+$ 
 ```
 
 Include the `create.sql` file on your solution.
 
 ### Populate your tables
 
-The `data.csv` file has more than 85K records. Insert that amount of data manually is not an option. Create a ruby application to upload all the records to your database.
+The `data.csv` file has more than 85K records. Inserting that amount of data
+manually is not an option. Create a ruby application to upload all the records
+to your database.
 
-The program should be called `insert_data.rb` and should take two arguments `database_name` and `csv_file_path`.
+The program should be called `insert_data.rb` and should take two arguments
+`database_name` and `csv_file_path`.
 
 Include the `insert_data.rb` file on your solution.
 
 ### CLI app to interact with the database
 
-Now we have the database ready to start receiving queries. The research team has required the development of a CLI app to share some insights about the Restaurant consumption data with our users.
+Now we have the database ready to start receiving queries. The research team has
+required the development of a CLI app to share some insights about the
+Restaurant consumption data with our users.
 
-All the example tables are using dummy data. Their numbers do not represent the expected result, just the expected format.
+<aside> 💡 All the example tables are using dummy data. Their numbers do not
+represent the expected result, just the expected format.
+
+</aside>
 
 **Client can see a menu**
 
-As a client, I want to run the application and see a menu with a list of options so that I could choose the topic I most interested in.
+As a client, I want to run the application and see a menu with a list of options
+so that I could choose the topic I am most interested in.
 
 - When I run the command `ruby restaurant-insights.rb` I see a welcome message
-- And below the welcome message I see a list with 10 options
-- And I'm prompt to choose on option with the message `Pick a number from the list and an [option] if neccesary`
-- And when I write 'menu' the Welcome message and menu is printed again.
+- And below the welcome message, I see a list with 10 options
+- And I'm prompted to choose one option with the message
+  `Pick a number from the list and an [option] if necessary`
+- And when I write 'menu' the Welcome message and menu are printed again.
 - And when I write 'quit' the program ends.
 
 ```bash
@@ -92,13 +123,14 @@ Write 'menu' at any moment to print the menu again and 'quit' to exit.
 9. The list of dishes and the restaurant where you can find it at a lower price.
 10. The favorite dish for [age=number | gender=string | occupation=string | nationality=string]
 ---
-Pick a number from the list and an [option] if neccesary
+Pick a number from the list and an [option] if necessary
 >
 ```
 
 **User can see the list of restaurants**
 
-As a user I want to use the option #1 of the menu so that I can see the list of restaurants filter by type or city.
+As a user, I want to use option #1 of the menu so that I can see the list of
+restaurants filter by category or city.
 
 Usage:
 
@@ -110,42 +142,42 @@ Usage:
 +----------------------+------------+-----------------+
 | name                 | category   | city            |
 +----------------------+------------+-----------------+
-| Blue Plate Brasserie | Senegalese | Belvastad       |
+| Blue Plate Brasserie | Assian     | Belvastad       |
 +----------------------+------------+-----------------+
-| Fast Curry           | Brazilian  | Rohanberg       |
+| Fast Curry           | Italian    | Rohanberg       |
 +----------------------+------------+-----------------+
-| Golden Bar & Grill   | Korean     | South Saranstad |
+| Golden Bar & Grill   | Burgers    | South Saranstad |
 +----------------------+------------+-----------------+
 | ...                  | ...        | ...             |
 +----------------------+------------+-----------------+
 
 # With filter category
-> 1 category=Korean
+> 1 category=Italian
 +-------------------------------------------------+
 |               List of restaurants               |
 +--------------------+----------+-----------------+
 | name               | category | city            |
 +--------------------+----------+-----------------+
-| Golden Bar & Grill | Korean   | South Saranstad |
+| Golden Bar & Grill | Italian  | South Saranstad |
 +--------------------+----------+-----------------+
-| Blue Plate Diner   | Korean   | South Hilde     |
+| Blue Plate Diner   | Italian  | South Hilde     |
 +--------------------+----------+-----------------+
-| Salty Bar & Grill  | Korean   | Rohanberg       |
+| Salty Bar & Grill  | Italian  | Rohanberg       |
 +--------------------+----------+-----------------+
 | ...                | ...      | ...             |
 +--------------------+----------+-----------------+
 # With filter city
->1 city="South Hilde"
+	>1 city='South Hilde'
 +------------------------------------------+
 |            List of restaurants           |
 +---------------+------------+-------------+
 | name          | category   | city        |
 +---------------+------------+-------------+
-| Orange BBQ    | German     | South Hilde |
+| Orange BBQ    | Italian    | South Hilde |
 +---------------+------------+-------------+
-| Golden Burger | Senegalese | South Hilde |
+| Golden Burger | Burgers    | South Hilde |
 +---------------+------------+-------------+
-| Big Eats      | Vegetarian | South Hilde |
+| Big Eats      | Thai       | South Hilde |
 +---------------+------------+-------------+
 | ...           | ...        | ...         |
 +---------------+------------+-------------+
@@ -153,7 +185,8 @@ Usage:
 
 **User can see the list of unique dishes**
 
-As a user I want to use the option #2 of the menu so that I can see the list of unique dishes included.
+As a user, I want to use option #2 of the menu so that I can see the list of
+unique dishes included.
 
 Usage:
 
@@ -176,7 +209,9 @@ Usage:
 
 **User can see the number and distribution of clients**
 
-As a user I want to use the option #3 of the menu so that I can see the list with the number and distribution of clients group by age, gender, occupation or nationality.
+As a user I want to use option #3 of the menu so that I can see the list with
+the number and distribution of clients group by age, gender, occupation or
+nationality.
 
 Usage:
 
@@ -244,7 +279,8 @@ Usage:
 
 **User can see the top 10 restaurants by the number of visitors**
 
-As a user I want to use the option #4 of the menu so that I can see the top 10 restaurants by the number of visitors.
+As a user I want to use option #4 of the menu so that I can see the top 10
+restaurants by the number of visitors.
 
 Usage
 
@@ -267,7 +303,8 @@ Usage
 
 **User can see the top 10 restaurants by the sum of sales**
 
-As a user I want to use the option #5 of the menu so that I can see the top 10 restaurants by the sum of sales.
+As a user I want to use option #5 of the menu so that I can see the top 10
+restaurants by the sum of sales.
 
 Usage:
 
@@ -290,7 +327,8 @@ Usage:
 
 **User can see the top 10 restaurants by the average expense of their clients**
 
-As a user I want to use the option #6 of the menu so that I can see the top 10 restaurants by the average expense of their clients.
+As a user I want to use option #6 of the menu so that I can see the top 10
+restaurants by the average expense of their clients.
 
 Usage:
 
@@ -313,7 +351,8 @@ Usage:
 
 **User can see the average consumer expense**
 
-As a user I want to use the option #7 of the menu so that I can see the average consumer expense group by age, gender, occupation or nationality
+As a user I want to use option #7 of the menu so that I can see the average
+consumer expense group by age, gender, occupation or nationality
 
 Usage:
 
@@ -379,9 +418,10 @@ Usage:
 +-------------+-------------+
 ```
 
-**User can see the total sales of all the restaurants group by month**
+**User can see the total sales of all the restaurants grouped by month**
 
-As a user I want to use the option #8 of the menu so that I can see the total sales of all the restaurants group by month.
+As a user I want to use option #8 of the menu so that I can see the total sales
+of all the restaurants grouped by month.
 
 Usage
 
@@ -421,7 +461,8 @@ Usage
 
 **Optional: User can see the best deal for a dish**
 
-As a user I want to use the option #9 of the menu so that I can see the list of dishes and the restaurant where you can find it at a lower price.
+As a user I want to use option #9 of the menu so that I can see the list of
+dishes and the restaurant where you can find it at a lower price.
 
 Usage:
 
@@ -444,7 +485,8 @@ Usage:
 
 **Optional: User can see favorite dish for a group of clients**
 
-As a client I want to use the option #10 of the menu so that I can see the favorite dish filter by an specific age, gender, occupation or nationality
+As a client I want to use option #10 of the menu so that I can see the favorite
+dish filter by a specific age, gender, occupation or nationality
 
 Usage:
 
